@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func settingsBtn(_ sender: UIBarButtonItem) {
         let alertVC = UIAlertController(title: "Settings",
-                                        message: "Settings should go here",
+                                        message: "Settings go here",
             preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default) { _ in
             alertVC.dismiss(animated: true)
@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var topicsTable: UITableView!
     
     let topics = ["Mathematics":"Are you faster than a calculator?",
-                  "Marvel Super Heros":"How much of a nerd are you?",
+                  "Marvel Super Heroes":"How much of a nerd are you?",
                   "Science":"Only for smartypants."]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
