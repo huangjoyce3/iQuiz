@@ -9,6 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBAction func settingsBtn(_ sender: UIBarButtonItem) {
+        let alertVC = UIAlertController(title: "Settings",
+                                        message: "Settings should go here",
+            preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            alertVC.dismiss(animated: true)
+        })
+        self.present(alertVC, animated: true)
+
+    }
+    
     @IBOutlet weak var topicsTable: UITableView!
     
     let topics = ["Mathematics":"Are you faster than a calculator?",
