@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if topic == "Science" {
             image = UIImage(named: "science")!
         }
-        if topic == "Marvel Super Heros" {
+        if topic == "Marvel Super Heroes" {
             image = UIImage(named: "heros")!
         }
         cell.imageView?.image = image
