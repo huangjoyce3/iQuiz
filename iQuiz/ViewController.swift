@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var topic:String = ""
+    var score = 0
+    @IBOutlet weak var topicsView: UITableView!
     
     @IBAction func settingsBtn(_ sender: UIBarButtonItem) {
         let alertVC = UIAlertController(title: "Settings",
@@ -18,10 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             alertVC.dismiss(animated: true)
         })
         self.present(alertVC, animated: true)
-
     }
-    
-    @IBOutlet weak var topicsTable: UITableView!
     
     let topics = ["Mathematics":"Are you faster than a calculator?",
                   "Marvel Super Heroes":"How much of a nerd are you?",
@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let index = indexPath.row
         let topic = Array(topics.keys)[index]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = topic
         cell.detailTextLabel?.text = topics[topic]
         
@@ -53,22 +53,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let topic = Array(topics.keys)[indexPath.row]
+        topic = Array(topics.keys)[indexPath.row]
         NSLog("User selected row at \(topic)")
+        
+        self.performSegue(withIdentifier: "questionVC", sender: self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        topicsTable.tableFooterView = UIView()
-        topicsTable.dataSource = self
-        topicsTable.delegate = self
+        topicsView.tableFooterView = UIView()
+        topicsView.dataSource = self
+        topicsView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let questionView = segue.destination as! QuestionViewController
+        questionView.topic = topic
+        questionView.score = score
+    }
 }
 
