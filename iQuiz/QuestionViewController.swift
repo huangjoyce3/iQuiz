@@ -30,6 +30,9 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func backBtn(_ sender: UIButton) {
         self.performSegue(withIdentifier: "back", sender: nil)
     }
+    @IBAction func submitBtn(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "submit", sender: nil)
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedAns = answers[indexPath.row]
@@ -72,6 +75,24 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
             answers = Array(sciQs.values)[numQuestion]
             questionSet = Array(sciQs.keys)
         }
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case UISwipeGestureRecognizerDirection.right:
+            self.performSegue(withIdentifier: "back", sender: nil)
+        case UISwipeGestureRecognizerDirection.left:
+            self.performSegue(withIdentifier: "submit", sender: nil)
+        default:
+            break
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,7 +102,6 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "submit"{
-            NSLog("submit segue")
             let answerView = segue.destination as! AnswerViewController
             answerView.topic = topic
             answerView.selectedAns = selectedAns

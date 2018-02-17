@@ -102,7 +102,7 @@
                                     <color key="titleColor" red="0.10410135619999999" green="0.71682723449999997" blue="0.67338529629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jx1-XY-DqI" kind="show" identifier="submit" id="pUL-fJ-hI1"/>
+                                    <action selector="submitBtn:" destination="u42-gC-dtx" eventType="touchUpInside" id="faT-X5-yRm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVk-BX-qYh">
@@ -112,7 +112,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backBtn:" destination="u42-gC-dtx" eventType="touchUpInside" id="abv-jR-arT"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="back" id="3u7-qT-oxO"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="moE-BN-rES">
@@ -141,6 +140,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="d6U-Sx-mwN" firstAttribute="top" secondItem="aTh-c8-mMb" secondAttribute="top" constant="79" id="BdH-Lg-j5Q"/>
                             <constraint firstItem="moE-BN-rES" firstAttribute="leading" secondItem="KbP-EF-2TA" secondAttribute="leading" id="GuM-tm-CFU"/>
@@ -154,13 +154,23 @@
                             <constraint firstItem="vVk-BX-qYh" firstAttribute="leading" secondItem="aTh-c8-mMb" secondAttribute="leading" constant="79" id="oF8-cU-yQ9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aTh-c8-mMb"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="x8q-c3-iah" appends="YES" id="yPQ-oC-Ruj"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="answerChoices" destination="moE-BN-rES" id="wWr-4D-vxG"/>
                         <outlet property="qLabel" destination="d6U-Sx-mwN" id="akQ-Po-9rW"/>
+                        <segue destination="jx1-XY-DqI" kind="show" identifier="submit" id="zzk-bg-3Ti"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="back" id="Eb3-tW-IT6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdY-oO-Vyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="x8q-c3-iah">
+                    <connections>
+                        <action selector="swiperHandler:" destination="u42-gC-dtx" id="lRJ-2W-yOc"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1751.2" y="132.68365817091455"/>
         </scene>
@@ -197,7 +207,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backBtn:" destination="jx1-XY-DqI" eventType="touchUpInside" id="uIB-n6-wAk"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="back" id="Njy-DY-hbU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15G-0y-FD2">
@@ -211,6 +220,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="03s-A6-GhT" firstAttribute="top" secondItem="VBr-a7-nAP" secondAttribute="bottom" constant="66" id="3jB-ht-H7f"/>
                             <constraint firstItem="FEE-Nf-RGC" firstAttribute="leading" secondItem="6RV-us-Dk9" secondAttribute="leading" constant="79" id="6i5-P6-14R"/>
@@ -225,6 +235,9 @@
                             <constraint firstItem="VBr-a7-nAP" firstAttribute="top" secondItem="6RV-us-Dk9" secondAttribute="top" constant="130" id="mhM-eC-dfi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6RV-us-Dk9"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="grW-qx-FdA" appends="YES" id="uAx-8I-Iez"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="correctAnswer" destination="03s-A6-GhT" id="MKK-3X-AZp"/>
@@ -232,9 +245,15 @@
                         <outlet property="resultLabel" destination="Y0k-Wb-Stl" id="B44-Do-lhI"/>
                         <segue destination="vpi-hE-T2C" kind="show" identifier="finished" id="8GA-cn-XNU"/>
                         <segue destination="u42-gC-dtx" kind="show" identifier="nextQ" id="Cp0-AC-TPc"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="back" id="hRF-Ba-zw5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kc3-C4-att" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="grW-qx-FdA">
+                    <connections>
+                        <action selector="swipeHandler:" destination="jx1-XY-DqI" id="q55-ta-v2Y"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1038" y="133"/>
         </scene>
@@ -268,6 +287,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="evS-7e-e9U" firstAttribute="centerY" secondItem="Ff7-pU-HFu" secondAttribute="centerY" id="Kez-0I-dJl"/>
                             <constraint firstItem="evS-7e-e9U" firstAttribute="centerX" secondItem="Ff7-pU-HFu" secondAttribute="centerX" id="RPV-S1-sKI"/>
@@ -279,19 +299,29 @@
                             <constraint firstItem="Kir-0B-F5O" firstAttribute="bottom" secondItem="SKh-NN-wEB" secondAttribute="bottom" constant="175" id="gTS-7u-pRv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kir-0B-F5O"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="JBK-Xb-iUe" appends="YES" id="S9k-8f-HuS"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="scoreLabel" destination="evS-7e-e9U" id="kJp-dJ-3P9"/>
                         <outlet property="textLabel" destination="9nB-Bz-EyX" id="cp7-53-bSW"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="back" id="PL4-GG-M3b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kaF-TI-r2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="JBK-Xb-iUe">
+                    <connections>
+                        <action selector="swipeHandler:" destination="vpi-hE-T2C" id="FD9-ta-FgN"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-338.39999999999998" y="132.68365817091455"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WOM-LK-gbH"/>
-        <segue reference="Yjj-It-AfO"/>
+        <segue reference="zzk-bg-3Ti"/>
+        <segue reference="Cp0-AC-TPc"/>
+        <segue reference="Eb3-tW-IT6"/>
     </inferredMetricsTieBreakers>
 </document>

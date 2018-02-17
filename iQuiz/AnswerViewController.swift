@@ -46,6 +46,14 @@ class AnswerViewController: UIViewController {
             resultLabel.text = "Womp womp. Wrong!"
             resultLabel.textColor = UIColor.red
         }
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,4 +74,17 @@ class AnswerViewController: UIViewController {
         }
     }
 
+    @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case UISwipeGestureRecognizerDirection.right:
+            self.performSegue(withIdentifier: "back", sender: nil)
+        case UISwipeGestureRecognizerDirection.left:
+            if numQuestion == totalQs - 1 {
+                self.performSegue(withIdentifier: "finished", sender: nil)
+            }
+            self.performSegue(withIdentifier: "nextQ", sender: nil)
+        default:
+            break
+        }
+    }
 }

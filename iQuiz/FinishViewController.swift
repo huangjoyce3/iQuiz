@@ -23,12 +23,29 @@ class FinishViewController: UIViewController {
             textLabel.text = "Better luck next time!"
             textLabel.textColor = UIColor.brown
         }
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case UISwipeGestureRecognizerDirection.right:
+            self.performSegue(withIdentifier: "back", sender: nil)
+        case UISwipeGestureRecognizerDirection.left:
+            self.performSegue(withIdentifier: "back", sender: nil)
+        default:
+            break
+        }
+    }
+    
 }
