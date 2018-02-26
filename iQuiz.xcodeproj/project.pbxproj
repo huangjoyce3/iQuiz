@@ -12,6 +12,8 @@
 		2F1CA3B2202D3C36003A304F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F1CA3B0202D3C36003A304F /* Main.storyboard */; };
 		2F1CA3B4202D3C36003A304F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F1CA3B3202D3C36003A304F /* Assets.xcassets */; };
 		2F1CA3B7202D3C36003A304F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F1CA3B5202D3C36003A304F /* LaunchScreen.storyboard */; };
+		2F240F1B2044BE970078A675 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F240F1A2044BE970078A675 /* Settings.bundle */; };
+		2F240F1D2044C5FF0078A675 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F240F1C2044C5FF0078A675 /* Network.swift */; };
 		2F98FCE32036C2A2008E5234 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98FCE22036C2A2008E5234 /* QuestionViewController.swift */; };
 		2FED8C302037CA95007A3269 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FED8C2F2037CA95007A3269 /* AnswerViewController.swift */; };
 		2FED8C3220380F2C007A3269 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FED8C3120380F2C007A3269 /* FinishViewController.swift */; };
@@ -25,6 +27,8 @@
 		2F1CA3B3202D3C36003A304F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F1CA3B6202D3C36003A304F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F1CA3B8202D3C36003A304F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F240F1A2044BE970078A675 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2F240F1C2044C5FF0078A675 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		2F98FCE22036C2A2008E5234 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		2FED8C2F2037CA95007A3269 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		2FED8C3120380F2C007A3269 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 		2F1CA3A0202D3C36003A304F = {
 			isa = PBXGroup;
 			children = (
+				2F240F1C2044C5FF0078A675 /* Network.swift */,
 				2F1CA3AB202D3C36003A304F /* iQuiz */,
 				2F1CA3AA202D3C36003A304F /* Products */,
 			);
@@ -62,6 +67,7 @@
 			children = (
 				2F1CA3AC202D3C36003A304F /* AppDelegate.swift */,
 				2F1CA3AE202D3C36003A304F /* ViewController.swift */,
+				2F240F1A2044BE970078A675 /* Settings.bundle */,
 				2F1CA3B0202D3C36003A304F /* Main.storyboard */,
 				2FED8C3120380F2C007A3269 /* FinishViewController.swift */,
 				2FED8C2F2037CA95007A3269 /* AnswerViewController.swift */,
@@ -132,6 +138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F240F1B2044BE970078A675 /* Settings.bundle in Resources */,
 				2F1CA3B7202D3C36003A304F /* LaunchScreen.storyboard in Resources */,
 				2F1CA3B4202D3C36003A304F /* Assets.xcassets in Resources */,
 				2F1CA3B2202D3C36003A304F /* Main.storyboard in Resources */,
@@ -147,6 +154,7 @@
 			files = (
 				2FED8C3220380F2C007A3269 /* FinishViewController.swift in Sources */,
 				2FED8C302037CA95007A3269 /* AnswerViewController.swift in Sources */,
+				2F240F1D2044C5FF0078A675 /* Network.swift in Sources */,
 				2F98FCE32036C2A2008E5234 /* QuestionViewController.swift in Sources */,
 				2F1CA3AF202D3C36003A304F /* ViewController.swift in Sources */,
 				2F1CA3AD202D3C36003A304F /* AppDelegate.swift in Sources */,
